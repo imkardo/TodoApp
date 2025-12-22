@@ -9,7 +9,7 @@
 
 /*  VARIABLES : */
 :root {
-  --primaryColor: #6d28d9;
+  --primaryColor: #2c66e3;
   --secondaryColor: #ede9fe;
   --mainWhite: #fff;
   --mainBlack: #222;
@@ -31,7 +31,7 @@ body {
 }
 
 header {
-  min-height: 20vh;
+  min-height: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,19 +45,21 @@ header {
 
 .form-container {
   display: flex;
+flex-direction: column;
+gap: 0.75rem;
 }
 .todo-container {
-  margin-top: 1rem;
-  width: 25rem;
+margin-top: 0.75rem;
 }
 form {
-  width: 25rem;
+  width: max-content;
   background-color: var(--mainWhite);
   border-radius: 0.5rem;
   display: flex;
   justify-content: space-between;
   border:2px solid var(--secondayGrey);
   overflow: hidden;
+  width: 100%;
 }
 form input {
   flex: 1;
@@ -74,7 +76,7 @@ form button {
 }
 
 form button {
-  color: var(--primaryColor);
+  color: var(--);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -93,9 +95,11 @@ form button:hover {
   display: flex;
 }
 .todo .todo__title {
-  color: var(--primaryColor);
   font-weight: bold;
   flex: 1;
+  max-width: 12rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .todo button {
@@ -110,7 +114,7 @@ form button:hover {
   color: var(--mainRed);
 }
 .fa-check-square {
-  color: var(--primaryColor);
+  color: var(--);
 }
 .completed {
   text-decoration: line-through;
@@ -121,17 +125,18 @@ select {
   appearance: none;
   border: none;
   outline: none;
-  width: 100%;
-  padding: 1rem;
-  color: var(--primaryColor);
+  width: max-content;
+  padding: 0.5rem;
+  color: var(--);
 }
 
 .select {
-  margin-left: 1rem;
   background-color: #fff;
   cursor: pointer;
-  width: 10rem;
+  width: max-content;
   position: relative;
+    top: 0;
+  right: 0;
   border: 2px solid var(--secondayGrey);
   font-weight: bold;
   border-radius: 0.5rem;
@@ -142,8 +147,8 @@ select {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 1rem;
-  color: var(--primaryColor);
+  padding: 0.5rem;
+  color: var(--);
   pointer-events: none;
 }
 
