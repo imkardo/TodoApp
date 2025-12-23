@@ -131,9 +131,9 @@ select {
 }
 
 .select {
-  background-color: #fff;
+  background-color: var(--secondaryColor);
   cursor: pointer;
-  width: max-content;
+  width: 8.5rem;
   position: relative;
     top: 0;
   right: 0;
