@@ -18,16 +18,17 @@ function addNewTodo(e) {
     isCompleted: false,
   };
   todos.push(newTodo);
+  createTodos(todos);
+}
+function createTodos(todos) {
   // Create Todos On Dom
   let result = ``;
   todos.forEach((todo) => {
     result += `<li class="todo">
-<span>
-          <p class="todo__title">${todo.title}</p>
+        <span><p class="todo__title">${todo.title}</p>
           <span class="todo__createdAt">${new Date(
             todo.createdAt
-          ).toLocaleDateString("fa-IR")}</span>
-</span>
+          ).toLocaleDateString("fa-IR")}</span></span>
          <span>
           <button data-todo-id=${
             todo.id
@@ -40,4 +41,25 @@ function addNewTodo(e) {
   });
   todoList.innerHTML = result;
   todoInput.value = "";
+}
+function filterTodos(e) {
+  const filter = e.target.value;
+  switch (filter) {
+    case "all": {
+      createTodos(todos);
+      break;
+    }
+    case "completed": {
+      const filteredTodos = todos.filter((t) => t.isCompleted);
+      createTodos(filteredTodos);
+      break;
+    }
+    case "uncompleted": {
+      const filteredTodos = todos.filter((t) => !t.isCompleted);
+      createTodos(filteredTodos);
+      break;
+    }
+    default:
+      createTodos(todos);
+  }
 }
