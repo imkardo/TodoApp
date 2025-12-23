@@ -91,20 +91,17 @@ function checkTodo(e) {
   saveAllTodos(todos);
   filterTodos();
 }
-
 //LocalStorage => Web API
 function getAllTodos() {
   const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
   return savedTodos;
 }
-
 function saveTodo(todo) {
   const savedTodos = getAllTodos();
   savedTodos.push(todo);
   localStorage.setItem("todos", JSON.stringify(savedTodos));
   return savedTodos;
 }
-
 function saveAllTodos(todos) {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
