@@ -33,16 +33,16 @@ function createTodos(todos) {
           <button data-todo-id=${
             todo.id
           }><i class="todo__check far fa-check-square"></i></button>
-          <button data-todo-id=${
+          <button class="todo__remove" data-todo-id=${
             todo.id
-          }><i class="todo__remove far fa-trash-alt"></i></button>
+          }><i class="far fa-trash-alt"></i></button>
          </span>
         </li> `;
   });
   todoList.innerHTML = result;
   todoInput.value = "";
   const removeBtns = [...document.querySelectorAll(".todo__remove")];
-  removeBtns.forEach((btn) => btn.addEventListener("click", removeTodos));
+  removeBtns.forEach((btn) => btn.addEventListener("click", removeTodo));
 }
 function filterTodos(e) {
   const filter = e.target.value;
@@ -65,7 +65,8 @@ function filterTodos(e) {
       createTodos(todos);
   }
 }
-function removeTodos(e) {
-  const todoId = e.target.dataset.todoId;
+function removeTodo(e) {
+  const todoId = Number(e.target.dataset.todoId);
   todos = todos.filter((t) => t.id !== todoId);
+  createTodos(todos);
 }
