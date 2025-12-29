@@ -19,6 +19,14 @@
   --mainTransition: all 0.3s linear;
   --mainRed: #db2777;
   --bodyColor: #f6f6f6;
+  --border-radius-tiny: 3px;
+  --border-radius-sm: 5px;
+  --border-radius-md: 7px;
+  --border-radius-lg: 9px;
+  --color-secondary-700: rgb(55, 65, 81);
+  --color-secondary-300: rgb(209, 213, 219);
+  --color-secondary-0: rgb(255, 255, 255);
+
 }
 
 body {
@@ -30,13 +38,100 @@ body {
   align-items: center;
 }
 
+/* backdrop */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+  z-index: 10;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: var(--color-secondary-0);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  width: calc(100vw - 4rem);
+  max-width: 30rem;
+  z-index: 2;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-secondary-300);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+.modal__header .close-modal{
+  background-color: #fff;
+}
+.modal__header p {
+  text-align: center;
+  flex: 1;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-secondary-700);
+}
+
+.modal__content {
+  font-size: 1.6rem;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+#edit-todo{
+  border: 1px solid var(--color-secondary-300);
+  padding: 0.7rem;
+  border-radius: var(--border-radius-lg);
+  outline: none;
+  font-size: 1.4rem;
+  width: 100%;
+}
+.modal__actions {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  font-size: 1.4rem;
+  gap: 4rem;
+  
+}
+.modal__actions button {
+  flex: 1;
+  padding: .5rem;
+  border-radius: var(--border-radius-lg);
+  outline: none;
+  color: #fff;
+}
+.btn--primary{
+  background-color:rgb(0, 241, 133);
+}
+.modal__actions button.close-modal{
+  background-color: rgb(255, 76, 76);
+}
 header {
   min-height: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .container {
   display: flex;
   flex-direction: column;
@@ -76,7 +171,6 @@ form button {
 }
 
 form button {
-  color: var(--);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -149,5 +243,12 @@ align-items: center;
 }
 .todo .todo__title{
   max-width: 22rem;
+}
+.modal__content{
+  flex-direction: row;
+  align-items: center;
+}
+.modal__actions button {
+  font-size: 1.1rem;
 }
 }

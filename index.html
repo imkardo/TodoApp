@@ -8,12 +8,29 @@
   <title>TodoApp</title>
     <link rel="stylesheet" href="./css/fonts.css" />
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/modal.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <div class="backdrop hidden" dir="ltr">
+      <div class="modal">
+        <div class="modal__header">
+          <p>Edit Todo</p>
+          <button class="close-modal" style='font-size:40px;'>&#10799;</button>
+        </div>
+        <div class="modal__content">
+          <label for="edit-todo">Title:</label>
+          <input type="text" name="edit-todo" id="edit-todo" />
+        </div>
+        <div class="modal__actions">
+          <button class="btn btn--primary" id="update-todo">Confirm</button>
+          <button class="btn btn--outline close-modal">Cancel</button>
+        </div>
+      </div>
+    </div>
   <header>
     <h1>Todo List</h1>
   </header>
