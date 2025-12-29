@@ -113,7 +113,10 @@ body {
   gap: 4rem;
   
 }
-.modal__actions button {
+.modal__actions button:hover{
+  cursor: pointer;
+} 
+.modal__actions button{
   flex: 1;
   padding: .5rem;
   border-radius: var(--border-radius-lg);

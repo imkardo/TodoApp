@@ -5,7 +5,9 @@ const todoForm = document.querySelector(".todo-form");
 const todoInput = document.querySelector(".todo-input");
 const todoList = document.querySelector(".todo-list");
 const selectFilter = document.querySelector(".filter-todos");
-
+const backdrop = document.querySelector(".backdrop");
+const closeModalBtns = document.querySelectorAll(".close-modal");
+const modal = document.querySelector(".modal");
 // Events
 todoForm.addEventListener("submit", addNewTodo);
 selectFilter.addEventListener("change", (e) => {
@@ -16,6 +18,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const todos = getAllTodos();
   createTodos(todos);
 });
+closeModalBtns.forEach((btn) => btn.addEventListener("click", closeModal));
+backdrop.addEventListener("click", closeModal);
+modal.addEventListener("click", (e) => e.stopPropagation());
 // Functions
 function addNewTodo(e) {
   e.preventDefault();
@@ -60,8 +65,10 @@ function createTodos(todos) {
   todoInput.value = "";
   const removeBtns = [...document.querySelectorAll(".todo__remove")];
   const checkBtns = [...document.querySelectorAll(".todo__check")];
+  const editBtns = [...document.querySelectorAll(".todo__edit")];
   removeBtns.forEach((btn) => btn.addEventListener("click", removeTodos));
   checkBtns.forEach((btn) => btn.addEventListener("click", checkTodos));
+  editBtns.forEach((btn) => btn.addEventListener("click", openModal));
 }
 function filterTodos() {
   const todos = getAllTodos();
@@ -114,4 +121,10 @@ function saveTodo(todo) {
 }
 function saveAllTodos(todos) {
   localStorage.setItem("todos", JSON.stringify(todos));
+}
+function openModal(e) {
+  backdrop.classList.remove("hidden");
+}
+function closeModal(e) {
+  backdrop.classList.add("hidden");
 }
