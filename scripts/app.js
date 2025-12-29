@@ -42,13 +42,17 @@ function createTodos(todos) {
           <span class="todo__createdAt">${new Date(
             todo.createdAt
           ).toLocaleDateString("fa-IR")}</span></span>
-         <span>
+         <span class="btns">
           <button class="todo__check" data-todo-id=${
             todo.id
           } ><i class="far fa-check-square"></i></button>
           <button class="todo__remove" data-todo-id=${
             todo.id
           } ><i class="far fa-trash-alt"></i></button>
+          <button class="todo__edit" data-todo-id=${todo.id}>
+          <i class="far fa-edit"></i>
+
+ </button>
          </span>
         </li>`;
   });

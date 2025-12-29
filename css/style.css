@@ -199,17 +199,14 @@ form button:hover {
 .todo button {
   display: block;
   font-size: 1rem;
-  padding: 0.5rem;
+  padding: 0.21rem;
   cursor: pointer;
   background-color: transparent;
 }
-
-.fa-trash-alt {
+.fa-trash-alt{
   color: var(--mainRed);
 }
-.fa-check-square {
-  color: var(--);
-}
+
 .completed {
   text-decoration: line-through;
   opacity: 0.5;
@@ -250,5 +247,11 @@ align-items: center;
 }
 .modal__actions button {
   font-size: 1.1rem;
+}
+.btns{
+  display: flex;
+}
+.todo button{
+  padding: 0.5rem;
 }
 }
