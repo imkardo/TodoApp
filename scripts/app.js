@@ -1,4 +1,5 @@
 let todos = [];
+let filterValue = "all";
 
 // Selecting
 const todoForm = document.querySelector(".todo-form");
@@ -8,7 +9,10 @@ const selectFilter = document.querySelector(".filter-todos");
 
 // Events
 todoForm.addEventListener("submit", addNewTodo);
-selectFilter.addEventListener("change", filterTodos);
+selectFilter.addEventListener("change", (e) => {
+  filterValue = e.target.value;
+  filterTodos();
+});
 // Functions
 function addNewTodo(e) {
   e.preventDefault();
@@ -23,7 +27,7 @@ function addNewTodo(e) {
   };
 
   todos.push(newTodo);
-  createTodos(todos);
+  filterTodos();
 }
 
 function createTodos(todos) {
@@ -54,9 +58,8 @@ function createTodos(todos) {
   checkBtns.forEach((btn) => btn.addEventListener("click", checkTodos));
 }
 
-function filterTodos(e) {
-  const filter = e.target.value;
-  switch (filter) {
+function filterTodos() {
+  switch (filterValue) {
     case "all":
       {
         createTodos(todos);
@@ -82,13 +85,12 @@ function filterTodos(e) {
 function removeTodos(e) {
   const todoId = Number(e.target.dataset.todoId);
   todos = todos.filter((t) => t.id !== todoId);
-  createTodos(todos);
+  filterTodos();
 }
 
 function checkTodos(e) {
   const todoId = Number(e.target.dataset.todoId);
   const todo = todos.find((t) => t.id === todoId);
   todo.isCompleted = !todo.isCompleted;
-  console.log(todos);
-  createTodos(todos);
+  filterTodos();
 }
