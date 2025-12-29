@@ -32,7 +32,6 @@ function addNewTodo(e) {
   saveTodo(newTodo);
   filterTodos();
 }
-
 function createTodos(todos) {
   let result = "";
   todos.forEach((todo) => {
@@ -60,7 +59,6 @@ function createTodos(todos) {
   removeBtns.forEach((btn) => btn.addEventListener("click", removeTodos));
   checkBtns.forEach((btn) => btn.addEventListener("click", checkTodos));
 }
-
 function filterTodos() {
   const todos = getAllTodos();
   switch (filterValue) {
@@ -85,7 +83,6 @@ function filterTodos() {
       createTodos(todos);
   }
 }
-
 function removeTodos(e) {
   let todos = getAllTodos();
   const todoId = Number(e.target.dataset.todoId);
@@ -93,7 +90,6 @@ function removeTodos(e) {
   saveAllTodos(todos);
   filterTodos();
 }
-
 function checkTodos(e) {
   let todos = getAllTodos();
   const todoId = Number(e.target.dataset.todoId);
@@ -102,12 +98,10 @@ function checkTodos(e) {
   saveAllTodos(todos);
   filterTodos();
 }
-
 function getAllTodos() {
   const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
   return savedTodos;
 }
-
 function saveTodo(todo) {
   const savedTodos = getAllTodos();
   savedTodos.push(todo);
