@@ -64,11 +64,11 @@ function createTodos(todos) {
   todoList.innerHTML = result;
   todoInput.value = "";
   const removeBtns = [...document.querySelectorAll(".todo__remove")];
-  const checkBtns = [...document.querySelectorAll(".todo__check")];
-  const editBtns = [...document.querySelectorAll(".todo__edit")];
   removeBtns.forEach((btn) => btn.addEventListener("click", removeTodos));
+  const checkBtns = [...document.querySelectorAll(".todo__check")];
   checkBtns.forEach((btn) => btn.addEventListener("click", checkTodos));
-  editBtns.forEach((btn) => btn.addEventListener("click", openModal));
+  const editBtns = [...document.querySelectorAll(".todo__edit")];
+  editBtns.forEach((btn) => btn.addEventListener("click", openEditModal));
 }
 function filterTodos() {
   const todos = getAllTodos();
@@ -121,6 +121,9 @@ function saveTodo(todo) {
 }
 function saveAllTodos(todos) {
   localStorage.setItem("todos", JSON.stringify(todos));
+}
+function openEditModal(e) {
+  openModal();
 }
 function openModal(e) {
   backdrop.classList.remove("hidden");
