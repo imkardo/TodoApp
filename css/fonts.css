@@ -11,7 +11,7 @@
   src: url(../assets/fonts/Vazirmatn-Bold.woff2) format(woff2);
 }
 html {
-  font-size: 62.5%;
+  /* font-size: 62.5%; */
 }
 /* body,
 button,
