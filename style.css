@@ -45,11 +45,11 @@ header {
 
 .form-container {
   display: flex;
-flex-direction: column;
-gap: 0.75rem;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 .todo-container {
-margin-top: 0.75rem;
+  margin-top: 0.75rem;
 }
 form {
   width: max-content;
@@ -122,42 +122,29 @@ form button:hover {
 }
 
 select {
-  appearance: none;
-  border: none;
   outline: none;
-  width: max-content;
-  padding: 0.6rem;
-  color: var(--);
-}
-
-.select {
-  background-color: var(--secondaryColor);
-  cursor: pointer;
-  width: 8.5rem;
-  position: relative;
-    top: 0;
-  right: 0;
+  color: var(--mainBlack);
+  background-color: var(--mainWhite);
   border: 2px solid var(--secondayGrey);
-  font-weight: bold;
+  width: 7.5rem;
   border-radius: 0.65rem;
+  font-size: 1rem;
+  cursor: pointer;
   overflow: hidden;
+  padding:0.75rem 0.2rem;
 }
-.select::after {
-  content: "\25BC";
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0.55rem;
-  color: var(--);
-  pointer-events: none;
-}
-
-
 button{
   border: none;
   outline: 0;
-
 }
 button > i {
   pointer-events: none;
 } 
+@media screen and (min-width: 500px) {
+.form-container {
+flex-direction: row;
+}
+.todo .todo__title{
+  max-width: 22rem;
+}
+}
