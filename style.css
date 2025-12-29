@@ -126,12 +126,13 @@ select {
   color: var(--mainBlack);
   background-color: var(--mainWhite);
   border: 2px solid var(--secondayGrey);
-  width: 7.5rem;
+  width: 7.6rem;
   border-radius: 0.65rem;
-  font-size: 1rem;
   cursor: pointer;
   overflow: hidden;
-  padding:0.75rem 0.2rem;
+  padding:0.75rem 0;
+  font-size: 0.8rem;
+  text-align: center;
 }
 button{
   border: none;
