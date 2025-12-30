@@ -7,7 +7,9 @@ const todoList = document.querySelector(".todo-list");
 const selectFilter = document.querySelector(".filter-todos");
 const backdrop = document.querySelector(".backdrop");
 const closeModalBtns = document.querySelectorAll(".close-modal");
+const updateModalBtns = document.querySelector("#update-todo");
 const modal = document.querySelector(".modal");
+const openEditInput = document.querySelector("#edit-todo");
 // Events
 todoForm.addEventListener("submit", addNewTodo);
 selectFilter.addEventListener("change", (e) => {
@@ -122,8 +124,24 @@ function saveTodo(todo) {
 function saveAllTodos(todos) {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+let todoEditId;
+
 function openEditModal(e) {
+  let todos = getAllTodos();
+  todoEditId = Number(e.target.dataset.todoId);
+  const todo = todos.find((todo) => todo.id === todoEditId);
+  openEditInput.value = todo.title;
   openModal();
+}
+updateModalBtns.addEventListener("click", updateModal);
+function updateModal(e) {
+  let todos = getAllTodos();
+  const todo = todos.find((todo) => todo.id === todoEditId);
+  todo.title = openEditInput.value;
+  saveAllTodos(todos);
+  filterTodos();
+  closeModal();
 }
 function openModal(e) {
   backdrop.classList.remove("hidden");
